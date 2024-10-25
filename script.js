@@ -10,12 +10,17 @@ function createGrid() {
         let square = document.createElement("div");
         square.classList.add("gridSquare");
         containerDiv.appendChild(square);
-        square.style.backgroundColor = "gray";
         square.style.flexBasis = `${squareSize}px`;
+
+        square.addEventListener("mouseover", function() {
+            square.style.backgroundColor = "red";
+
+        })
+
+
        
     }
 }
-
 
 
 createGrid();
