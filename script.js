@@ -1,12 +1,19 @@
+const containerDiv = document.getElementById("container");
+const containerWidth = 600;
+let columns = 10;
+let squareSize = containerWidth / columns;
+
+
 function createGrid() {
-    //need to create a for loop that creates 16 x 16 divs
-    const containerDiv = document.getElementById("container");
-    const newDiv = document.createElement("div");
-    const test = document.createElement("p");
-    test.innerHTML = "Test1"
-    newDiv.innerHTML = "test2"
-    containerDiv.appendChild(newDiv)
-    containerDiv.appendChild(test)
+    //need to create a for loop that creates 16(256), 32(1024), 64x(4096) divs
+    for (let i = 0; i < 100; i++) {
+        let square = document.createElement("div");
+        square.classList.add("gridSquare");
+        containerDiv.appendChild(square);
+        square.style.backgroundColor = "gray";
+        square.style.flexBasis = `${squareSize}px`;
+       
+    }
 }
 
 
