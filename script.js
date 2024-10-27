@@ -3,6 +3,8 @@ const containerWidth = 600;
 const btn16 = document.getElementById("btn16");
 const btn32 = document.getElementById("btn32");
 const btn64 = document.getElementById("btn64");
+const blackRadio = document.getElementById("black");
+const randomRadio = document.getElementById("random");
 
 let columns;
 let squareSize;
@@ -43,14 +45,20 @@ function createGrid() {
         square.style.height = `${squareSize}px`;
 
         square.addEventListener("mouseover", function() {
-            square.style.backgroundColor = "red";
-
+            if (blackRadio.checked) {
+                square.style.backgroundColor = "black";
+            } else if (randomRadio.checked) {
+                square.style.backgroundColor = generateColor();
+            }
         });
 
-
+        function generateColor() {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            square.style.backgroundColor = "#" + randomColor;
+        }  
        
     }
-}
+};
 
 
 createGrid();
@@ -59,5 +67,8 @@ document.getElementById("btn16").addEventListener("click", btn16Click);
 document.getElementById("btn32").addEventListener("click", btn32Click);
 document.getElementById("btn64").addEventListener("click", btn64Click);
 
-// Need to add dynamic code for bg color options, 
-//and make random color fn
+
+
+
+//Add scratch off fn. (or opacity setting)
+// Style site! Show/hide gridlines fn.
