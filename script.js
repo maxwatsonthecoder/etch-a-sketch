@@ -5,6 +5,7 @@ const btn32 = document.getElementById("btn32");
 const btn64 = document.getElementById("btn64");
 const blackRadio = document.getElementById("black");
 const randomRadio = document.getElementById("random");
+const gridCheckbox = document.getElementById("grid-hide");
 
 let columns;
 let squareSize;
@@ -44,6 +45,15 @@ function createGrid() {
         square.style.flexBasis = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
 
+        // gridCheckbox.addEventListener("change", function() {
+        //     const gridSquare = document.querySelectorAll(".gridSquare");
+        //     gridSquare.style.outline = "none";
+        // }) gp solution
+
+        // if (gridCheckbox.checked) {
+        //     square.style.outline = "none";
+        // } my attempt.
+
         square.addEventListener("mouseover", function() {
             if (blackRadio.checked) {
                 square.style.backgroundColor = "black";
@@ -56,6 +66,8 @@ function createGrid() {
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             square.style.backgroundColor = "#" + randomColor;
         }  
+
+
        
     }
 };
