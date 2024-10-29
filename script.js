@@ -45,14 +45,11 @@ function createGrid() {
         square.style.flexBasis = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
 
-        // gridCheckbox.addEventListener("change", function() {
-        //     const gridSquare = document.querySelectorAll(".gridSquare");
-        //     gridSquare.style.outline = "none";
-        // }) gp solution
-
-        // if (gridCheckbox.checked) {
-        //     square.style.outline = "none";
-        // } my attempt.
+        if (gridCheckbox.checked) {
+            square.style.outline = "none";
+        } else {
+            square.style.outline = "1px solid black";
+        }
 
         square.addEventListener("mouseover", function() {
             if (blackRadio.checked) {
@@ -65,22 +62,21 @@ function createGrid() {
         function generateColor() {
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             square.style.backgroundColor = "#" + randomColor;
-        }  
-
-
-       
+        }        
     }
 };
 
-
-createGrid();
+gridCheckbox.addEventListener("change", function() {
+    const squares = document.querySelectorAll(".gridSquare");
+    for (let i = 0; i < squares.length; i++) {
+        if (gridCheckbox.checked) {
+            squares[i].style.outline = "none";
+        } else {
+            squares[i].style.outline = "1px solid black";
+        }
+    }
+});
 
 document.getElementById("btn16").addEventListener("click", btn16Click);
 document.getElementById("btn32").addEventListener("click", btn32Click);
 document.getElementById("btn64").addEventListener("click", btn64Click);
-
-
-
-
-//Add scratch off fn. (or opacity setting)
-// Style site! Show/hide gridlines fn.

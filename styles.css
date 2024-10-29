@@ -32,11 +32,6 @@ button {
     color: black;
 }
 
-/* #color-selector {
-    border: 2px solid orange;
-    border-radius: 7px;
-} */
-
 .gridSquare {
     outline: 1px solid black;
     flex-grow: 1;
